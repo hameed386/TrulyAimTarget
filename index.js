@@ -62,3 +62,19 @@ window.addEventListener("hashchange", function() {
     setTimeout(initMobileSwiper, 100); // slight delay to ensure DOM is ready
   }
 });
+
+ let currentImage = 0;
+  const images = document.querySelectorAll('.image-block img');
+
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextImage() {
+    currentImage = (currentImage + 1) % images.length;
+    showImage(currentImage);
+  }
+
+  setInterval(nextImage, 3000);

@@ -63,6 +63,81 @@ section {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+  }
+
+  .image-block {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .image-block img {
+    width: 100%;
+    height: 500px; /* Ensures all images have the same height */
+    object-fit: cover;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .image-block img.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .btn-animated {
+    background-color: #0d6efd;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  .btn-animated:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.05);
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .image-block {
+      margin-bottom: 2rem;
+    }
+
+    .image-block img {
+      height: auto; /* Adjust height automatically */
+      max-height: 300px; /* Limit max height for smaller screens */
+      object-fit: contain; /* Ensure images fit nicely */
+    }
+  }
+
 /* Services Section */
 .services-section {
     padding: 60px 20px;

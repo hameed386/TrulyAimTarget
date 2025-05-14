@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TrulyAim | Software Solutions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/> <!-- Added Bootstrap Icons -->
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+  <link rel="icon" type="image/png" href="./images/logo2.jpg">
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/logo1234-removebg-preview.png" alt="TrulyAim Logo" style="height: 50px; width: 200px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#about">About</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+
+<!-- Add Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+  }
+
+  .image-block {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .image-block img {
+    width: 100%;
+    height: 500px; /* Ensures all images have the same height */
+    object-fit: cover;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .image-block img.active {
+    display: block;
+    opacity: 1;
+  }
+
+  .btn-animated {
+    background-color: #0d6efd;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  .btn-animated:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.05);
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .image-block {
+      margin-bottom: 2rem;
+    }
+
+    .image-block img {
+      height: auto; /* Adjust height automatically */
+      max-height: 300px; /* Limit max height for smaller screens */
+      object-fit: contain; /* Ensure images fit nicely */
+    }
+  }
+</style>
+
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center flex-column-reverse flex-md-row">
+      <!-- Text Area -->
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+        <h1 class="fw-bold mb-3 text-primary">Innovate. Design. Succeed.</h1>
+        <p class="text-secondary mb-4">
+          Your trusted partner in cutting-edge digital solutions.
+        </p>
+        <button class="btn-animated">Get Started</button>
+      </div>
+
+      <!-- Image Slider -->
+      <div class="col-md-6">
+        <div class="image-block w-100">
+          <img src="./images/ONE.jpg" class="active" alt="Slide 1">
+          <img src="./images/two.jpg" alt="Slide 2">
+          <img src="./images/three.jpg" alt="Slide 3">
+          <img src="./images/four.jpg" alt="Slide 4">
+          <img src="./images/five.jpg" alt="Slide 5">
+          <img src="./images/six.jpg" alt="Slide 6">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image Slider Script -->
+<script>
+  let currentImage = 0;
+  const images = document.querySelectorAll('.image-block img');
+
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextImage() {
+    currentImage = (currentImage + 1) % images.length;
+    showImage(currentImage);
+  }
+
+  setInterval(nextImage, 3000);
+</script>
+
+  <!-- <section id="hero" class="hero-section d-flex align-items-center text-white text-center position-relative">
+        <video autoplay muted loop id="background-video" class="position-absolute w-100 h-100" style="object-fit: cover; z-index: -1;">
+            <source src="./video/video5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    <div class="container mt-5 pt-5">
+      <h1 class="display-4 fw-bold">Innovate. Design. Succeed.</h1>
+      <p class="lead fw-bold">Your trusted partner in cutting-edge digital solutions</p>
+      <a href="#contact" class="btn btn-primary btn-lg mt-3">Get Started</a>
+    </div>
+  </section> -->
+  <!-- Services Section -->
+  <section id="services" class="services-section bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title fw-bold">Our Services</h2>
+        <p class="text-muted">What we offer</p>
+      </div>
+      <!-- Marquee for md and up -->
+      <div class="marquee d-none d-md-block">
+        <div class="marquee-content">
+          
+           <!-- Original Service Cards -->
+          <div class="service-card">
+            <img src="./images/image5.jpg" alt="Web Development">
+            <h3>Web Development</h3>
+            <p>Build modern and responsive websites.</p>
+            <a href="web.html" class="btn btn-outline-primary">Explore</a>
+          </div>
+          <div class="service-card">
+            <img src="./images/image2.svg" alt="App Development">
+            <h3>App Development</h3>
+            <p>Create powerful mobile applications.</p>
+            <a href="app.html" class="btn btn-outline-primary">Explore</a>
+          </div>
+          <div class="service-card">
+            <img src="./images/image3.svg" alt="UI/UX Design">
+            <h3>UI/UX Design</h3>
+            <p>Design user-friendly interfaces for websites.</p>
+            <a href="uiux.html" class="btn btn-outline-primary">Explore</a>
+          </div>
+          <div class="service-card">
+            <img src="./images/digital_marketing.jpg" alt="Digital Marketing">
+            <h3>Digital Marketing</h3>
+            <p>Drive Sales Through Digital Ads and Connect With us.</p>
+            <a href="digital.html" class="btn btn-outline-primary">Explore</a>
+          </div>
+          <div class="service-card">
+            <img src="./images/crm_card.jpg" alt="CRM Solutions">
+            <h3>CRM Solutions</h3>
+            <p>Manage customer relationships effectively.</p>
+            <a href="crm.html" class="btn btn-outline-primary">Explore</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swiper Carousel for small devices only -->
+      <div class="d-block d-md-none">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- Slides injected by JS -->
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination mt-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- About Section -->
+<!-- <section id="about" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 order-1 order-md-1 order-sm-1">
+                <h2 class="fw-bold">About Us</h2>
+                <p>We are a passionate team of designers, developers, and strategists committed to creating outstanding digital experiences. Our mission is to elevate brands through innovative digital solutions.</p>
+            </div>
+            <div class="col-md-6 order-2 order-md-2 order-sm-2">
+                <img src="./images/about.jpg" alt="About us" class="img-fluid rounded shadow img-height">
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<!-- about 2 -->
+<section id="about" class="py-5 about-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold animate_animated animate_fadeIn">Who We Are</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md-6 order-1 order-md-1 order-sm-1 animate_animated animate_fadeInLeft">
+        <h3 class="about-title fw-bold">Our Story</h3>
+        <p class="about-text">We’re a dynamic team of creators and innovators dedicated to transforming ideas into reality. Our mission is to empower brands with bold, innovative digital solutions that drive success in a fast-evolving world.</p>
+      </div>
+      <div class="col-md-6 order-2 order-md-2 order-sm-2 animate_animated animate_fadeInRight">
+        <div class="image-container">
+          <img src="./images/about.jpg" alt="About us" class="img-fluid rounded shadow about-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Solutions Lab Section -->
+  <section id="solutions" class="solutions-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Solutions Lab</h2>
+      </div>
+      <div class="row text-center">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="solution-card">
+            <i class="bi bi-robot solution-icon" style="font-size: 3rem; color: #007bff;"></i>
+            <h3 class="fw-bold mt-3">AI Solutions</h3>
+            <p class="text-muted">Next-generation artificial intelligence applications</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="solution-card">
+            <i class="bi bi-gear-fill solution-icon" style="font-size: 3rem; color: #28a745;"></i>
+            <h3 class="fw-bold mt-3">Automation Tools</h3>
+            <p class="text-muted">Streamline your business processes</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="solution-card">
+            <i class="bi bi-cloud solution-icon" style="font-size: 3rem; color: #ffc107;"></i>
+            <h3 class="fw-bold mt-3">SaaS Platforms</h3>
+            <p class="text-muted">Cloud-based software solutions</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="#contact" class="btn btn-success btn-lg">Join Beta Program</a>
+      </div>
+    </div>
+  </section>
+
+
+  
+<!--contact-->
+<!-- <section id="contact" class="py-4 bg-light rounded" style="animation: fadeSlideIn 0.8s ease;">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Contact Us</h2>
+            <p class="text-muted">We'd love to hear from you! Please fill out the form below.</p>
+        </div>
+        <div class="form-container">
+            <h2 class="text-center">Send Email</h2> -->
+            <!-- <form id="contact-form" class="d-flex flex-column gap-3">
+                <input type="text" name="from_name" placeholder="Your Name" class="form-control" required>
+                <input type="email" name="from_email" placeholder="Your Email" class="form-control" required>
+                <textarea name="message" placeholder="Your Message" class="form-control" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary mx-auto d-block" style="width: fit-content;">Send</button>
+            </form>
+            <p id="status" class="mt-3"></p>
+        </div>
+    </div>
+</section>  -->
+
+
+<!-- contact form 2 start html -->
+<section id="contact" class="py-5 contact-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title fw-bold animate_animated animate_fadeIn">Let’s Connect</h2>
+      <p class="text-muted animate_animated animate_fadeIn">Reach out to start your journey with us!</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="form-container glass-card">
+          <form id="contact-form" class="d-flex flex-column gap-4">
+            <div class="form-group position-relative">
+              <i class="bi bi-person-fill form-icon"></i>
+              <input type="text" name="from_name" placeholder="Your Name" class="form-control" required>
+              <label class="floating-label">Your Name</label>
+            </div>
+            <div class="form-group position-relative">
+              <i class="bi bi-envelope-fill form-icon"></i>
+              <input type="email" name="from_email" placeholder="Your Email" class="form-control" required>
+              <label class="floating-label">Your Email</label>
+            </div>
+            <div class="form-group position-relative">
+              <i class="bi bi-chat-text-fill form-icon"></i>
+              <textarea name="message" placeholder="Your Message" class="form-control" rows="5" required></textarea>
+              <label class="floating-label">Your Message</label>
+            </div>
+            <button type="submit" class="btn btn-primary glowing-btn mx-auto">Send Message</button>
+          </form>
+          <p id="status" class="mt-3 text-center"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- contact form 2 end  -->
+<script>
+    (function(){
+        emailjs.init("z08ubUjUZCiF6yIsc"); // Replace with your EmailJS Public Key
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        emailjs.sendForm("service_eqg7dej", "template_dpoka6m", this)
+            .then(function(response) {
+                 document.getElementById("status").innerText = "Message sent successfully!";
+            }, function(error) {
+                 console.log("EmailJS Error:", error);
+                 document.getElementById("status").innerText = "Failed to send message: " + error.text;
+            });
+    });
+</script>
+
+
+<!-- <footer class="bg-secondary text-white py-5">
+  <div class="container">
+    <div class="row">
+      <About Us -->
+      <!-- <div class="col-md-4 border-end border-white">
+        <h5 class="fw-bold">About Us</h5>
+        <p>We are dedicated to providing innovative technology solutions for modern businesses.</p>
+      </div> -->
+      <!-- Quick Links -->
+      <!-- <div class="col-md-4 border-end border-white">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="#testimonials" class="text-white text-decoration-none">Projects</a></li>
+          <li><a href="#solutions" class="text-white text-decoration-none">Solutions Lab</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div> -->
+      <!-- Follow Us -->
+      <!-- <div class="col-md-4">
+        <h5 class="fw-bold">Follow Us</h5>
+        <div class="d-flex gap-3">
+          <a href="https://www.linkedin.com/in/trulyaim-trulyaim-b71341364/" class="text-white"><i class="bi bi-linkedin"></i></a>
+          <a href="https://x.com/Trulyaim14206" class="text-white"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.instagram.com/truly_aim2025/" class="text-white"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61576233325571" class="text-white"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 border-bottom border-white" style="border: 1px solid white;">
+    <div class="text-center">
+      <p class="mb-0">&copy; 2024 TechSolutions. All rights reserved.</p>
+    </div>
+  </div>
+</footer>  -->
+
+<!-- footer - part 2 -start -->
+<footer class="text-white py-5 footer-section">
+  <div class="container">
+    <div class="row animate_animated animate_fadeIn">
+      <div class="col-md-4 border-end border-gradient">
+        <h5 class="fw-bold">Address</h5>
+        <p> Lalitha Nagar Happy Homes 3 Apartment  </p>
+        <p></p>
+      </div>
+      <div class="col-md-4 border-end border-gradient">
+        <h5 class="fw-bold">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="#testimonials" class="text-white text-decoration-none">Projects</a></li>
+          <li><a href="#solutions" class="text-white text-decoration-none">Solutions Lab</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="fw-bold">Follow Us</h5>
+        <div class="d-flex gap-3 social-icons">
+          <a href="https://www.linkedin.com/in/trulyaim-trulyaim-b71341364/" class="text-white social-icon"><i class="bi bi-linkedin"></i></a>
+          <a href="https://x.com/Trulyaim14206" class="text-white social-icon"><i class="bi bi-twitter"></i></a>
+          <a href="https://www.instagram.com/truly_aim2025/" class="text-white social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61576233325571" class="text-white social-icon"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 border-white">
+    <div class="text-center">
+      <p class="mb-0">© 2024 TrulyAim All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- footer part 2 end -->
+
+
+
+
+
+
+
+  <!-- WhatsApp Button -->
+  <a
+    href="https://wa.me/7989659195?text=Hello%2C%20I%20am%20interested%20in%20your%20services"
+    class="whatsapp-button"
+    target="_blank"
+    title="Chat with us on WhatsApp"
+  >
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp Icon" />
+  </a>
+
+  <!-- Phone Call Button -->
+  <a href="tel:+919876543210" class="call-button" title="Call Us">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Call Icon" />
+  </a>
+
+  <!-- Google Maps Location Button -->
+  <a href="https://www.google.com/maps?q=17.005196,82.243656" target="_blank" class="location-button" title="Our Location">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Location Icon" />
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("z08ubUjUZCiF6yIsc"); // Replace with your EmailJS Public Key
+    })();
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const contactForm = document.querySelector("#contact form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          emailjs.sendForm("service_eqg7dej", "template_dpoka6m", this)
+            .then(function(response) {
+               alert("Message sent successfully!");
+            }, function(error) {
+               console.error("EmailJS Error:", error);
+               alert("Failed to send message: " + error.text);
+            });
+        });
+      }
+    });
+
+    // duplicate 
+    
+
+  </script>
+  <!-- <script src="index.js"> -->
+
+ 
+  <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
+
+
+

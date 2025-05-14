@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About with Image</title>
+  <script src="https://cdn.tailwindcss.com?plugins=aspect-ratio"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {},
+      },
+    }
+  </script>
+  <style>
+    .wave {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+    <!-- Left Side Content -->
+    <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+      <h1 class="text-5xl font-extrabold text-gray-800 mb-4 leading-tight">
+        Innovate. <span class="text-blue-600">Design.</span> Succeed.
+      </h1>
+      <p class="text-gray-600 mb-6 text-lg">
+        Your trusted partner in cutting-edge digital solutions.
+      </p>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition duration-300">
+        🚀 Get Started
+      </button>
+    </div>
+
+    <!-- Right Side: Carousel -->
+    <div class="md:w-1/2 w-full">
+      <div class="relative group overflow-hidden rounded-xl shadow-lg w-full max-w-md mx-auto">
+        <div class="carousel-inner flex transition-transform duration-500 ease-in-out w-full" style="width: 300%;">
+          <div class="w-full flex-shrink-0">
+            <img src="video/16683399_5785419.jpg" alt="Image 1"
+                 class="w-full max-w-[500px] h-auto max-h-[300px] object-cover rounded-xl mx-auto" />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img src="video/freepik_upload_54191.png" alt="Image 2"
+                 class="w-full max-w-[500px] h-auto max-h-[300px] object-cover rounded-xl mx-auto" />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img src="video/16683399_5785419.jpg" alt="Image 3"
+                 class="w-full max-w-[500px] h-auto max-h-[300px] object-cover rounded-xl mx-auto" />
+          </div>
+        </div>
+
+        <!-- Hover Buttons -->
+        <button onclick="prevSlide()"
+          class="absolute top-1/2 left-3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-blue-100 transition opacity-0 group-hover:opacity-100">
+          &#10094;
+        </button>
+        <button onclick="nextSlide()"
+          class="absolute top-1/2 right-3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-blue-100 transition opacity-0 group-hover:opacity-100">
+          &#10095;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.carousel-inner > div');
+      const totalSlides = slides.length;
+      const carouselInner = document.querySelector('.carousel-inner');
+
+      console.log("Total slides:", totalSlides);
+      console.log("Requested index:", index);
+
+      if (index >= totalSlides) {
+        currentIndex = 0;
+        console.log("Index reset to 0");
+      } else if (index < 0) {
+        currentIndex = totalSlides - 1;
+        console.log("Index reset to last slide:", currentIndex);
+      } else {
+        currentIndex = index;
+        console.log("Current index set to:", currentIndex);
+      }
+
+      const offset = -currentIndex * 100;
+      console.log("Applying transform offset:", offset);
+      carouselInner.style.transform = translateX(${offset}%);
+    }
+
+    function nextSlide() {
+      console.log("Next button clicked");
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      console.log("Previous button clicked");
+      showSlide(currentIndex - 1);
+    }
+
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+      console.log("Auto slide triggered");
+      nextSlide();
+    }, 5000);
+  </script>
+
+</body>
+</html>
